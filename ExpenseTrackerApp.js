@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ExpenseTrackerForm from "./Components/ExpenseTrackerForm";
-import ExpenseTableList from "./Components/ExpenseTableList";
+import ExpenseTrackerForm from "./ExpenseTrackerForm";
+import ExpenseTableList from "./ExpenseTableList";
 
 const ExpenseTrackerApp = () => {
   const [expenseData, setExpneseData] = useState([]);
