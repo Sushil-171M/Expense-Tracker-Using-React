@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import AddNewExpenseButton from "./components/NewExpense/AddNewExpenseButton";
 
 const App = () => {
   const [expenses, setExpenses] = useState([
@@ -16,7 +17,7 @@ const App = () => {
       id: "e3",
       title: "Car Insurance",
       amount: 294.67,
-      date: new Date(2021, 2, 28),
+      date: new Date(2020, 2, 28),
     },
     {
       id: "e4",
@@ -24,17 +25,36 @@ const App = () => {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
+    {
+      id: "e4",
+      title: "New Desk 1 (Wooden)",
+      amount: 450,
+      date: new Date(2022, 5, 12),
+    },
+    {
+      id: "e4",
+      title: "New Desk 2(Wooden)",
+      amount: 450,
+      date: new Date(2023, 5, 12),
+    },
   ]);
-  
+
+  const [clicked, setClicked] = useState(false)
+
   const addExpenseHandler = (data) => {
     setExpenses((prevState) => {
       return [...prevState, data]
     })
   }
 
+  const btnHandler = (value) => {
+    !value ? setClicked(!clicked) : setClicked(value)
+  }
+
   return (
     <>
-      <NewExpense onUserInputData={addExpenseHandler} />
+      <AddNewExpenseButton btnHandler={btnHandler} />
+      {clicked && <NewExpense onUserInputData={addExpenseHandler} btnHandler={btnHandler} />}
       <Expenses items={expenses} />
     </>
   );

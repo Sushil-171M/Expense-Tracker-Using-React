@@ -8,6 +8,9 @@ const NewExpense = (props) => {
             ...expenseData,
             id:Math.floor(Math.random()*1000)
         })
+
+        props.btnHandler(false);
+
     }
 
     return (
