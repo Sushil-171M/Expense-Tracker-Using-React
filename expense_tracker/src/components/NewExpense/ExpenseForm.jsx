@@ -6,8 +6,8 @@ const ExpenseForm = () => {
 
     //1st method to declare State
     const [title, setTitle] = useState('')
-    const [amount, setAmount] = useState(0)
-    const [date, setDate] = useState(null)
+    const [amount, setAmount] = useState('')
+    const [date, setDate] = useState('')
 
     // 2nd method to declare state
 
@@ -80,6 +80,9 @@ const ExpenseForm = () => {
             date: date
         }
         console.log(expenseData)
+        setAmount('')
+        setDate('')
+        setTitle('')
     }
 
     return (
@@ -87,15 +90,15 @@ const ExpenseForm = () => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={titleHandler} />
+                    <input type="text" value={title} onChange={titleHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>Expense Amount</label>
-                    <input type="number" onChange={amountHandler} />
+                    <input type="number" value={amount} onChange={amountHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" onChange={dateHandler} />
+                    <input type="date"  value = {date} onChange={dateHandler} />
                 </div>
                 <div className="new-expense__actions">
                     <button type="submit">Add Expense</button>
