@@ -10,21 +10,28 @@ const Expenses = (props) => {
         setSelectedYear(data)
     }
 
-   let filteredYear = props.items.filter((expense)=>{
-         return expense.date.getFullYear().toString() === selectedYear
+    let filteredExpenses = props.items.filter((expense) => {
+        return expense.date.getFullYear().toString() === selectedYear
     })
+
+    let expenseContent = filteredExpenses.map((item) => {
+        return <ExpenseItem
+            key={item.id}
+            title={item.title}
+            amount={item.amount}
+            date={item.date}
+        />
+    })
+
 
     return (
         <Card className="expenses">
             <ExpenseFilter onChageFilterHandler={filterHandler} />
-            {filteredYear.map((item) => {
-                return <ExpenseItem
-                    key={item.id}
-                    title={item.title}
-                    amount={item.amount}
-                    date={item.date}
-                />
-            })}
+            {expenseContent.length === 1 ? (<div>
+                {expenseContent}
+                <p style={{color:'white'}}>Only single Expense here. Please add more...</p>
+            </div>) : <div>{expenseContent}</div>
+            }
         </Card>
     );
 };
