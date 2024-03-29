@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-
+import './ExpenseFilter.css'
 const ExpenseFilter = (props) => {
 
-    const [selectedYear, setSelectedYear] = useState(2020)
+    const [year,setYear]  = useState(2020)
     const filterHandler = (e) => {
-        setSelectedYear(e.target.value)
-        props.getFilterValue(e.target.value)
+        props.onChageFilterHandler(e.target.value)
+        setYear(e.target.value)
     }
     return (
-        <div>
-            <label htmlFor="filter">Filter</label>
-            <select id='filter' onChange={filterHandler} value={selectedYear}>
+        <div className='expenses-filter'>
+            <div  className='expenses-filter__control'>
+            <label htmlFor="filter">Filter By Year</label>
+            <select id='filter' onChange={filterHandler} value={year}>
                 <option value='2020'>
                     2020
                 </option>
@@ -25,6 +26,8 @@ const ExpenseFilter = (props) => {
                 </option>
             </select>
         </div>
+        </div>
+       
     )
 }
 
