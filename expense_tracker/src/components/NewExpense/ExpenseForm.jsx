@@ -20,17 +20,17 @@ const ExpenseForm = () => {
 
     const titleHandler = (e) => {
         // 1st method to set data for 1st method of state declared
-         setTitle(e.target.value)
+        setTitle(e.target.value)
 
         //2nd methoda to handle state object
-       
+
         // setFormObj({
         //     ...formObj,
         //     title: e.target.value
         // })
 
 
-       // using callback which takes prevState as argument
+        // using callback which takes prevState as argument
         // setFormObj((prevState) => {
         //     return {
         //         ...prevState,
@@ -40,7 +40,7 @@ const ExpenseForm = () => {
     }
 
     const amountHandler = (e) => {
-         setAmount(e.target.value)
+        setAmount(e.target.value)
 
         // setFormObj({
         //     ...formObj,
@@ -55,7 +55,7 @@ const ExpenseForm = () => {
         // })
     }
     const dateHandler = (e) => {
-         setDate(e.target.value)
+        setDate(e.target.value)
 
         // setFormObj({
         //     ...formObj,
@@ -69,9 +69,21 @@ const ExpenseForm = () => {
         //     }
         // })
     }
-    
+
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+
+        const expenseData = {
+            title: title,
+            amount: amount,
+            date: date
+        }
+        console.log(expenseData)
+    }
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
