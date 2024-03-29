@@ -25,13 +25,13 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
     {
-      id: "e4",
+      id: "e44",
       title: "New Desk 1 (Wooden)",
       amount: 450,
       date: new Date(2022, 5, 12),
     },
     {
-      id: "e4",
+      id: "e45",
       title: "New Desk 2(Wooden)",
       amount: 450,
       date: new Date(2023, 5, 12),

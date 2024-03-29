@@ -4,6 +4,7 @@ import Card from "../UI/Card";
 import ExpenseList from './ExpenseList'
 import "./Expenses.css";
 import ExpenseFilter from './ExpenseFilter'
+import ExpensesChart from "./ExpensesChart";
 const Expenses = (props) => {
     const [selectedYear, setSelectedYear] = useState('2020')
     const filterHandler = (data) => {
@@ -14,10 +15,11 @@ const Expenses = (props) => {
         return expense.date.getFullYear().toString() === selectedYear
     })
 
-       return (
+    return (
         <Card className="expenses">
             <ExpenseFilter onChageFilterHandler={filterHandler} />
-            <ExpenseList items = {filteredExpenses} />
+            <ExpensesChart expenses={filteredExpenses} />
+            <ExpenseList items={filteredExpenses} />
         </Card>
     );
 };
